@@ -41,10 +41,11 @@ const BasicForm = (props) => {
   const formSubmissionHandler = (e) => {
     e.preventDefault();
 
-    if (!enteredFirstNameIsValid) {
+    if (!formIsValid) {
       return;
     }
 
+    console.log("Submitted!");
     console.log(enteredFirstName, enteredLastName, enteredEmail);
     resetFirstNameInput();
     resetLastNameInput();
@@ -60,9 +61,10 @@ const BasicForm = (props) => {
   const emailInputClasses = emailInputHasError
     ? "form-control invalid"
     : "form-control ";
+
   return (
     <form onSubmit={formSubmissionHandler}>
-      <div className="form-control">
+      <div className="control-group">
         <div className={firstNameInputClasses}>
           <label htmlFor="firstName">First Name</label>
           <input
